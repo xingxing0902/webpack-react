@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -60,6 +61,22 @@ module.exports = {
         ]
     },
     devtool: "source-map",
+    devServer: {
+        // contentBase: path.join(__dirname, 'dist'),
+
+        static: {
+            directory: path.join(__dirname, 'public'),
+          },
+        compress: true,
+        port: 8080,
+        proxy: {
+            "/data": {
+                "target": "http://www.qhdlink.com/data.php",
+                "changeOrigin": true,
+                "pathRewrite": { "^/data" : "" }
+            }
+        }
+    },
     plugins: [
         //配置多个应用
         new HtmlWebpackPlugin({ //假设是前台应用入口
@@ -80,7 +97,9 @@ module.exports = {
             filename: '[name]-[hash].css',
             chunkFilename: '[id].css',
         }),
+        new CleanWebpackPlugin()
 
     ]
 
 }
+
