@@ -10,4 +10,10 @@ function testable(target) {
     class MyTestableClass {}
     console.log("装饰器语法",MyTestableClass.isTestable) // true
     
-
+    const delay=new Promise(resolve=>console.log("new Promise()"));
+    function* helloWorldGenerator() {yield 'hello';
+       yield 'world';
+       return 'ending';
+    }
+    var hw = helloWorldGenerator();
+    
