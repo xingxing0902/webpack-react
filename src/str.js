@@ -1,3 +1,3 @@
 export default{
-    link:'<a href="http://www.baidu.com">百度aaa</a>'
+    link:'<a href="">天猫</a>'
 }
