@@ -23,7 +23,13 @@ module.exports = {
                     //     presets: ['@babel/preset-env', '@babel/preset-react']
                     // }
                 }
-            }
+            },
+            //css
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+
         ]
     },
     devtool: "source-map",
