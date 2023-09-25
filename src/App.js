@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import Img1 from './img/1.gif'
 
 export default class App extends Component {
     componentDidMount(){
@@ -14,6 +15,8 @@ export default class App extends Component {
         return (
             <div>
                 Apps组件
+                <img src={Img1}/>
+
             </div>
         )
     }

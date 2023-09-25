@@ -43,6 +43,9 @@ devDependencies:
   css-loader:
     specifier: 6.7.1
     version: registry.npmmirror.com/css-loader@6.7.1(webpack@5.73.0)
+  file-loader:
+    specifier: ^6.2.0
+    version: registry.npmmirror.com/file-loader@6.2.0(webpack@5.73.0)
   html-webpack-plugin:
     specifier: 5.5.0
     version: registry.npmmirror.com/html-webpack-plugin@5.5.0(webpack@5.73.0)
@@ -3277,6 +3280,20 @@ packages:
     engines: {node: '>=0.8.0'}
     dependencies:
       websocket-driver: registry.npmmirror.com/websocket-driver@0.7.4
+
+  registry.npmmirror.com/file-loader@6.2.0(webpack@5.73.0):
+    resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/file-loader/-/file-loader-6.2.0.tgz}
+    id: registry.npmmirror.com/file-loader/6.2.0
+    name: file-loader
+    version: 6.2.0
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    dependencies:
+      loader-utils: registry.npmmirror.com/loader-utils@2.0.4
+      schema-utils: registry.npmmirror.com/schema-utils@3.3.0
+      webpack: registry.npmmirror.com/webpack@5.73.0(webpack-cli@4.10.0)
+    dev: true
 
   registry.npmmirror.com/fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fill-range/-/fill-range-7.0.1.tgz}

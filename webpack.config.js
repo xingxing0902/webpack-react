@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -11,7 +11,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename:"js/[name]_[contenthash].main.js"
+        filename: "js/[name]_[contenthash].main.js"
     },
     mode: 'production',
     module: {
@@ -52,7 +52,22 @@ module.exports = {
                 }, {
                     loader: 'sass-loader' // compiles Less to CSS
                 }]
-            }
+            },
+            //file-loader
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            publicPath: './../img',  //该属性指明我们最终引用的文件路径（打包生成的index.html文件里面引用资源的前缀）
+                            outputPath: 'img/'  //图片复制到的文件夹
+                        },
+                    },
+                ],
+            },
+
         ]
     },
     devtool: "source-map",
@@ -61,14 +76,14 @@ module.exports = {
 
         static: {
             directory: path.join(__dirname, 'public'),
-          },
+        },
         compress: true,
         port: 8080,
         proxy: {
             "/data": {
                 "target": "http://www.qhdlink.com/data.php",
                 "changeOrigin": true,
-                "pathRewrite": { "^/data" : "" }
+                "pathRewrite": { "^/data": "" }
             }
         }
     },
