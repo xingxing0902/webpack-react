@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import './less/public.less'
+import './scss/public.scss'
 ReactDOM.render(
     <App />,
     document.getElementById("app")
