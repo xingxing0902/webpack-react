@@ -11,7 +11,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name]_[contenthash].main.js"
+        filename:"js/[name]_[contenthash].main.js"
     },
     mode: 'production',
     module: {
@@ -42,8 +42,6 @@ module.exports = {
                     loader: 'less-loader' // compiles Less to CSS
                 }]
             },
-
-
             //scss
             {
                 test: /\.scss$/,
@@ -55,9 +53,6 @@ module.exports = {
                     loader: 'sass-loader' // compiles Less to CSS
                 }]
             }
-
-
-
         ]
     },
     devtool: "source-map",
@@ -94,7 +89,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: '[name]-[hash].css',
+            filename: 'css/[name]-[contenthash].css',
             chunkFilename: '[id].css',
         }),
         new CleanWebpackPlugin()
