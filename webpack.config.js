@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -27,31 +28,34 @@ module.exports = {
             //css
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             //less
             {
                 test: /\.less$/,
                 use: [{
-                    loader: 'style-loader' // creates style nodes from JS strings
+                    loader: MiniCssExtractPlugin.loader, // creates style nodes from JS strings
                 }, {
                     loader: 'css-loader' // translates CSS into CommonJS
                 }, {
                     loader: 'less-loader' // compiles Less to CSS
                 }]
             },
+
+
             //scss
             {
                 test: /\.scss$/,
                 use: [{
-                loader: 'style-loader' // creates style nodes from JS strings
+                    loader: MiniCssExtractPlugin.loader, // creates style nodes from JS strings
                 }, {
-                loader: 'css-loader' // translates CSS into CommonJS
+                    loader: 'css-loader' // translates CSS into CommonJS
                 }, {
-                loader: 'sass-loader' // compiles sass to CSS
+                    loader: 'sass-loader' // compiles Less to CSS
                 }]
-                }
-                
+            }
+
+
 
         ]
     },
@@ -69,7 +73,14 @@ module.exports = {
             filename: "one.html",
             template: "./public/one.html",
             chunks: ["one"] //chunks指定需要引入的入口模块的键名 one:"./src/one.js"
-        })
+        }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name]-[hash].css',
+            chunkFilename: '[id].css',
+        }),
+
     ]
 
 }
